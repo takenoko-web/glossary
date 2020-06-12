@@ -18,4 +18,9 @@ class Word extends Model
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    public function autocomplete()
+    {
+        return [];
+    }
 }

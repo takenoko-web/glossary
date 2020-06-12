@@ -18,5 +18,5 @@ Route::resource('/words', 'WordController')->except(['index']);
     Route::get('/autocomplete', 'WordController@autocomplete')->name('autocomplete');
 });*/
 Route::get('/words', 'WordController@search')->name('words.search');
-Route::get('/words/autocomplete', 'WordController@index')->name('words.autocomplete');
+Route::get('/words/autocomplete', 'WordController@autocomplete')->name('words.autocomplete');
 Route::get('/tags/{name}', 'TagController@show')->name('tags.show');

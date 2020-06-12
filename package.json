@@ -22,6 +22,8 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "vanilla-autokana": "^1.1.6"
+        "core-js": "^3.6.5",
+        "vanilla-autokana": "^1.1.6",
+        "vue-suggest-input": "^0.1.4"
     }
 }

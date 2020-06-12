@@ -5,14 +5,14 @@
         type="text" placeholder="Search" aria-label="Search" autocomplete="on" name="word"
         v-model="search" @input="autocompleteSearch">
         <datalist id="word-list">  
-            <option v-for="word in wordList" :key="word">{{word}}</option>
+
         </datalist>
         <div>
             <div class="custom-control custom-radio custom-control-inline p-5">
                 <input type="radio" class="custom-control-input" id="type-0" name="type" value="0" checked>
                 <label class="custom-control-label" for="type-0">完全一致</label>
             </div>
-
+            <option v-for="word in words" :key="word">{{word}}</option>
             <div class="custom-control custom-radio custom-control-inline p-5">
                 <input type="radio" class="custom-control-input" id="type-1" name="type" value="1">
                 <label class="custom-control-label" for="type-1">部分一致</label>
@@ -34,18 +34,17 @@ export default {
     },
     data() {
         return {
-            wordList: [],
+            //words: this.words,
+            seachValue: this.search,
         };
     },
     methods: {
         async autocompleteSearch() {
             const response = await axios.get(this.endpoint, {
-                params: {
-                    word: this.search,
-                },
+                word: this.seachValue,
             });
 
-            this.wordList = response.data;
+            console.log(response);
         },
     },
 }

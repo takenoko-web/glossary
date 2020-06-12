@@ -101,5 +101,11 @@ class WordController extends Controller
 
     public function autocomplete(Request $request)
     {
+        $words = Word::where('word', 'LIKE', "%$request->word")
+                    ->orWhere('read', 'LIKE', "%$request->word")
+                    ->orderBy('created_at', 'desc');
+        return [
+            'words' => $words,
+        ];
     }
 }
